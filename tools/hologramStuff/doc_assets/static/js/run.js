@@ -7,7 +7,10 @@
     var examples = document.querySelectorAll(".codeExample");
 
     Array.prototype.forEach.call(examples, function (example, index) {
+        var appendTarget = example.querySelector(".exampleOutput");
         var OutputExample = Object.create(HTMLElement.prototype);
+        var OutputExampleElem;
+        var outputExampleElem = document.createElement("x-sg-output-example-" + index);
 
         OutputExample.createdCallback = function () {
             var shadowRoot = this.createShadowRoot();
@@ -16,11 +19,9 @@
             shadowRoot.innerHTML = template.innerHTML;
         };
 
-        var OutputExampleElem = document.registerElement("x-sg-output-example-" + index, {
+        OutputExampleElem = document.registerElement("x-sg-output-example-" + index, {
             prototype: OutputExample
         });
-
-        var outputExampleElem = document.createElement("x-sg-output-example-" + index);
-        example.insertBefore(outputExampleElem, example.firstChild);
+        appendTarget.appendChild(outputExampleElem);
     });
 }());
