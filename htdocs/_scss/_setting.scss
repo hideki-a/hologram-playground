@@ -1,0 +1,34 @@
+// # Document Type
+//
+// HTML文書の文書型定義。
+$doc-html5: true;
+
+// # Support Browser
+//
+// サポートするブラウザの定義。IEの後方互換に影響。
+$support-ie6: false !default;
+$support-ie7: false !default;
+
+// # Extension
+//
+// ポリフィルで利用するライブラリ等の拡張子の設定。
+$pie-url: "/common/css/PIE.htc";
+
+// # Wide-use Variables
+//
+// 汎用的に利用する変数を定義。
+$tmp: "";
+$basefz: 16;
+
+// Color Settings
+$color: #595757;
+$linkcolor: #1440ff;
+$hovercolor: #f60;
+
+// Font Awesome
+$fa-css-prefix: fa;
+
+// Variables
+$bgcolor: #f7f7f7;
+$keycolor: #013087;
+$lightborder: #e5e5e5;

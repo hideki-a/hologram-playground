@@ -1,0 +1,80 @@
+// # 相対値計算
+//
+// ## 引数:
+// * `newsize`: 目的のサイズ
+// * `context`: 継承したサイズ
+// * `unit`: 出力結果に付与される単位（Default: em）
+@function rs($newsize, $context, $unit:em) {
+	@if $unit == "%" {
+		@return #{$newsize/$context*100}#{$unit};
+	} @else {
+		@return #{$newsize/$context}#{$unit};
+	}
+}
+
+
+// # フォントファミリー
+//
+// ## 引数:
+// * `type`: フォントタイプ
+@mixin font-family($type) {
+	@if $type == sans-serif {
+		font-family: sans-serif;
+		@if $support-ie6 {
+			_font-family: 'MS PGothic', sans-serif#{$important};
+		}
+	} @else if $type == hiragino {
+		font-family: 'Hiragino Kaku Gothic Pro', Meiryo, 'MS PGothic', sans-serif;
+	} @else if $type == hiragino-without-meiryo {
+		font-family: 'Hiragino Kaku Gothic Pro', 'MS PGothic', sans-serif;
+	} @else if $type == mincho {
+		font-family: "Hiragino Mincho Pro", "HGS明朝E", "ＭＳ Ｐ明朝", serif;
+	}
+}
+
+
+// # Clearfix
+//
+// ## 引数:
+// なし
+@mixin clearfix {
+	%clearfix{
+		/* フロートの解除 */    // @charset出力のため、あえてコメントを日本語化している
+		@if $support-ie6 or $support-ie7 {
+			*zoom: 1;
+		}
+		&:before,
+		&:after {
+			content: " ";
+			display: table;
+		}
+		&:after {
+			clear: both;
+		}
+	}
+}
+
+
+// # インラインブロック
+//
+// ## 引数:
+// * `set-haslayout`: hasLayoutをtrueにするコードの出力有無。
+@mixin inline-block($set-haslayout: true) {
+	display: inline-block;
+	@if $support-ie6 or $support-ie7 {
+		*display: inline;
+		@if set-haslayout {
+			*zoom: 1;
+		}
+		*vertical-align: top;
+	}
+}
+
+
+// # CSS3 PIE
+//
+// ## 引数:
+// なし
+@mixin pie {
+	behavior: url($pie-url);
+}
