@@ -91,6 +91,10 @@ module.exports = (grunt) ->
             from: /\(\/(images|_dev)/g
             to: '(../../$1'
           },
+          {
+            from: /body(\s*)\{/
+            to: ':host$1{'
+          },
         ]
       styleguide_html:
         src: ['../docs/styleguide/*.html']

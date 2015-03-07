@@ -5,9 +5,8 @@
 ----------------------------------------------------------- */
 body{
 	@include font-family("hiragino");
-	line-height: rs(24,14, "");
-	font-size: rs(14,$basefz);
-	-webkit-text-size-adjust: 100%;
+	line-height: rs(26,16, "");
+	color: #333;
 }
 
 @include default-margin(1em,true);
