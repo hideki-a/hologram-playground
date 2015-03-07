@@ -6,19 +6,19 @@
 (function () {
     "use strict";
     var examples = document.querySelectorAll(".codeExample");
-    var XSgOutputExample = document.registerElement("x-sg-output-example");
+
+    document.registerElement("x-sg-output-example");
 
     Array.prototype.forEach.call(examples, function (example, index) {
         var appendTarget = example.querySelector(".exampleOutput");
-        var customElement;
+        var customElement = document.createElement("x-sg-output-example");
         var shadowRoot;
         var template = example.querySelector(".renderedExampleTmpl");
         var clone;
 
-        appendTarget.appendChild(new XSgOutputExample());
-        customElement = appendTarget.getElementsByTagName("x-sg-output-example")[0];
         shadowRoot = customElement.createShadowRoot();
         clone = document.importNode(template.content, true);
         shadowRoot.appendChild(clone);
+        appendTarget.appendChild(customElement);
     });
 }());
