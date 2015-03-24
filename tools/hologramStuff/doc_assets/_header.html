@@ -10,14 +10,24 @@
 <link rel="stylesheet" href="common/css/font-awesome.css">
 -->
 <!-- Styleguide CSS -->
-<link rel="stylesheet" href="static/css/normalize.css">
-<link rel="stylesheet" href="static/css/doc.css">
-<link rel="stylesheet" href="static/css/github.css">
+<link rel="stylesheet" href="styleguide_parts/css/basic.css">
 </head>
 
 <body>
-<ul>
+<header class="page-header">
+<div class="page-header-content">
+<h1 class="page-header-hdg">○○株式会社様公式ウェブサイト モジュール一覧</h1>
+</div><!-- /.page-header-content -->
+</header>
+
+<main role="main">
+<div class="page-contents">
+<div class="page-nav">
+<ul class="list-modules-01">
 <% @blocks.each do |block| %>
 <li><a href="#<%= block[:name] %>"><%= block[:title] %></a></li>
 <% end %>
 </ul>
+</div><!-- /.page-nav -->
+
+<div class="page-main">
